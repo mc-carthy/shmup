@@ -3,11 +3,15 @@
 [AddComponentMenu ("Vestige/Hero")]
 public class Hero : Singleton<Hero> {
 
+	private float shieldLevel = 1f;
+	public float ShieldLevel 
+	{ 
+		get { return shieldLevel; } 
+	}
+
 	private float speed = 30f;
 	private float rollMult = -45f;
 	private float pitchMult = 30f;
-
-	private float shieldLevel = 1f;
 
 	private void Update () 
     {
