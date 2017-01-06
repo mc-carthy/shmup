@@ -106,8 +106,6 @@ public class Hero : Singleton<Hero> {
 	{
 		PowerUp pu = go.GetComponent<PowerUp> ();
 
-		Debug.Log (pu.type);
-
 		switch (pu.type)
 		{
 			case (WeaponType.Shield):

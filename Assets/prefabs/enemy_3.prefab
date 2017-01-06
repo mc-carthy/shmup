@@ -55,8 +55,8 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4753163848922868}
-  - component: {fileID: 114335718214186080}
   - component: {fileID: 54714429079085924}
+  - component: {fileID: 114963135330862404}
   m_Layer: 9
   m_Name: enemy_3
   m_TagString: enemy
@@ -266,7 +266,7 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 120
   m_CollisionDetection: 0
---- !u!114 &114335718214186080
+--- !u!114 &114963135330862404
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -274,10 +274,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 1188827636033212}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 33109fd8e19e7436eaa88b2f02416a50, type: 3}
+  m_Script: {fileID: 11500000, guid: a33f77055df8f4da1a9fcc7289a34802, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  remainingDamageFrames: 0
 --- !u!135 &135129176159160798
 SphereCollider:
   m_ObjectHideFlags: 1

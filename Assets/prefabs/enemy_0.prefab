@@ -19,8 +19,8 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4862031349624022}
-  - component: {fileID: 114745370801361340}
   - component: {fileID: 54161583308358340}
+  - component: {fileID: 114745370801361340}
   m_Layer: 9
   m_Name: enemy_0
   m_TagString: enemy
@@ -208,6 +208,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   remainingDamageFrames: 0
+  powerUpChance: 1
 --- !u!135 &135381666491325614
 SphereCollider:
   m_ObjectHideFlags: 1
