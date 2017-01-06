@@ -19,6 +19,8 @@ public class Hero : Singleton<Hero> {
 	public delegate void WeaponFireDelegate ();
 	public WeaponFireDelegate FireDelegate;
 
+	[SerializeField]
+	private Weapon[] weapons;
 
 	private float speed = 30f;
 	private float rollMult = -45f;
@@ -33,6 +35,11 @@ public class Hero : Singleton<Hero> {
 		bounds = Utilities.CombineBoundsOfChildren (gameObject);
 	}
 
+	private void Start ()
+	{
+		ClearWeapons ();
+		weapons[0].SetType (WeaponType.Blaster);
+	}
 
 	private void Update () 
     {
@@ -81,6 +88,10 @@ public class Hero : Singleton<Hero> {
 				ShieldLevel--;
 				Destroy (go);
 			}
+			else if (go.tag == "powerUp")
+			{
+				AbsorbPowerUp (go);
+			}
 			else
 			{
 				Debug.Log ("Triggered : " + other.gameObject.name);
@@ -88,6 +99,54 @@ public class Hero : Singleton<Hero> {
 		}
 		else
 		{
+		}
+	}
+
+	public void AbsorbPowerUp (GameObject go)
+	{
+		PowerUp pu = go.GetComponent<PowerUp> ();
+
+		switch (pu.Type)
+		{
+			case (WeaponType.Shield):
+				shieldLevel++;
+				break;
+			default:
+				if (pu.Type == weapons[0].Type)
+				{
+					Weapon w = GetEmptyWeaponSlot ();
+					if (w != null)
+					{
+						w.SetType (pu.Type);
+					}
+				}
+				else
+				{
+					ClearWeapons ();
+					weapons[0].SetType (pu.Type);
+				}
+				break;
+		}
+		pu.AbsorbedBy (gameObject);
+	}
+
+	private Weapon GetEmptyWeaponSlot ()
+	{
+		for (int i = 0; i < weapons.Length; i++)
+		{
+			if (weapons[i].Type == WeaponType.None)
+			{
+				return weapons[i];
+			}
+		}
+		return null;
+	}
+
+	private void ClearWeapons ()
+	{
+		foreach (Weapon w in weapons)
+		{
+			w.SetType (WeaponType.None);
 		}
 	}
 }

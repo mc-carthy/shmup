@@ -42,9 +42,13 @@ public class Weapon : MonoBehaviour {
     private GameObject collar;
     public float lastShot;
 
-    private void Start ()
+    private void Awake ()
     {
         collar = transform.Find ("collar").gameObject;
+    }
+
+    private void Start ()
+    {
         SetType (type);
 
         if (PROJECTILE_ANCHOR == null)
