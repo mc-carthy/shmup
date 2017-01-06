@@ -1,6 +1,5 @@
 ﻿using UnityEngine;
 
-[AddComponentMenu ("Vestige/Hero")]
 public class Hero : Singleton<Hero> {
 
 	private float shieldLevel = 1f;

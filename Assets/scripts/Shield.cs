@@ -1,6 +1,5 @@
 ﻿using UnityEngine;
 
-[AddComponentMenu ("Vistage/Shield")]
 public class Shield : MonoBehaviour {
 
 	private Renderer ren;

@@ -10,10 +10,9 @@ public enum BoundsTest {
 	OffScreen
 }
 
-[AddComponentMenu ("Vistage/Utilities")]
 public class Utilities : MonoBehaviour {
 
-	// Bounds functions
+	// Bounds functions =======================================
 	
 
 	public static Bounds BoundsUnion (Bounds b0, Bounds b1)
