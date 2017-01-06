@@ -241,4 +241,23 @@ public class Utilities : MonoBehaviour {
 	{
 		return FindTaggedParent (t.gameObject);
 	}
+
+// Materials functions =========================
+	static public Material[] GetAllMaterials (GameObject go)
+	{
+		List<Material> mats = new List<Material> ();
+
+		Renderer ren = go.GetComponent<Renderer> ();
+		if (ren != null)
+		{
+			mats.Add (ren.material);
+		}
+
+		foreach (Transform t in go.transform)
+		{
+			mats.AddRange (GetAllMaterials (t.gameObject));
+		}
+
+		return mats.ToArray ();
+	}
 }

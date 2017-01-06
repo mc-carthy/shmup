@@ -16,6 +16,10 @@ public class Hero : Singleton<Hero> {
 		}
 	}
 
+	public delegate void WeaponFireDelegate ();
+	public WeaponFireDelegate FireDelegate;
+
+
 	private float speed = 30f;
 	private float rollMult = -45f;
 	private float pitchMult = 30f;
@@ -52,6 +56,11 @@ public class Hero : Singleton<Hero> {
 		}
 
 		transform.rotation = Quaternion.Euler (yAxis * pitchMult, xAxis * rollMult, 0);
+
+		if (Input.GetAxis("Jump") == 1 && FireDelegate != null)
+		{
+			FireDelegate ();
+		}
 	}
 
 	private void OnTriggerEnter (Collider other)
