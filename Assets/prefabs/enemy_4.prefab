@@ -349,6 +349,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   remainingDamageFrames: 0
   powerUpChance: 1
+  parts:
+  - name: cockpit
+    health: 10
+    protectedBy:
+    - fuselage
+  - name: fuselage
+    health: 10
+    protectedBy:
+    - wingL
+    - wingR
+  - name: wingL
+    health: 10
+    protectedBy: []
+  - name: wingR
+    health: 10
+    protectedBy: []
 --- !u!135 &135915547745908470
 SphereCollider:
   m_ObjectHideFlags: 1

@@ -12,13 +12,16 @@ public class Enemy : MonoBehaviour {
 	private float health = 10f;
 	private int score = 100;
 	private int showDamageForFrames = 2;
+	public int ShowDamageForFrames { get; }
 	private Color[] originalColors;
 	private Material[] materials;
 	public int remainingDamageFrames;
 	public float powerUpChance = 1f;
 	
-	private Bounds bounds;
+	public Bounds bounds;
+
 	private Vector3 boundsCenterOffset;
+	public Vector3 BoundsCenterOffset { get; }
 
 	private void Awake ()
 	{
