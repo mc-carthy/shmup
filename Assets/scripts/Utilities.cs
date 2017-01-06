@@ -12,7 +12,7 @@ public enum BoundsTest {
 
 public class Utilities : MonoBehaviour {
 
-	// Bounds functions =======================================
+// Bounds functions =======================================
 	
 
 	public static Bounds BoundsUnion (Bounds b0, Bounds b1)
@@ -218,5 +218,27 @@ public class Utilities : MonoBehaviour {
 		}
 
 		return Vector3.zero;
+	}
+
+// Transform functions =========================
+
+	public static GameObject FindTaggedParent (GameObject go)
+	{
+		if (go.tag != "Untagged")
+		{
+			return go;
+		}
+
+		if (go.transform.parent == null)
+		{
+			return null;
+		}
+
+		return FindTaggedParent (go.transform.parent.gameObject);
+	}
+
+	public static GameObject FindTaggedParent (Transform t)
+	{
+		return FindTaggedParent (t.gameObject);
 	}
 }

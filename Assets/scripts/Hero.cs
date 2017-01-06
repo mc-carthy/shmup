@@ -6,12 +6,20 @@ public class Hero : Singleton<Hero> {
 	public float ShieldLevel 
 	{ 
 		get { return shieldLevel; } 
+		set {
+			shieldLevel = Mathf.Min (value, 4);
+			if (value < 0)
+			{
+				Destroy (gameObject);
+			}
+		}
 	}
 
 	private float speed = 30f;
 	private float rollMult = -45f;
 	private float pitchMult = 30f;
 	private Bounds bounds;
+	private GameObject lastTriggerGo;
 
 	protected override void Awake ()
 	{
@@ -42,5 +50,33 @@ public class Hero : Singleton<Hero> {
 		}
 
 		transform.rotation = Quaternion.Euler (yAxis * pitchMult, xAxis * rollMult, 0);
+	}
+
+	private void OnTriggerEnter (Collider other)
+	{
+		GameObject go = Utilities.FindTaggedParent (other.gameObject);
+
+		if (go != null)
+		{
+			if (go == lastTriggerGo)
+			{
+				return;
+			}
+
+			lastTriggerGo = go;
+
+			if (go.tag == "enemy")
+			{
+				ShieldLevel--;
+				Destroy (go);
+			}
+			else
+			{
+				Debug.Log ("Triggered : " + other.gameObject.name);
+			}
+		}
+		else
+		{
+		}
 	}
 }
