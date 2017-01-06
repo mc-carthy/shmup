@@ -8,8 +8,18 @@ public class Main : Singleton<Main> {
 
     [SerializeField]
     private GameObject[] enemyPrefabs;
-    // [SerializeField]
+    [SerializeField]
+    private GameObject powerUpPrefab;
+
     public WeaponDefinition[] weaponDefinitions;
+    
+    private WeaponType[] powerUpFrequency = new WeaponType[] {
+        WeaponType.Blaster,
+        WeaponType.Blaster,
+        WeaponType.Spread,
+        WeaponType.Shield
+    };
+
     private WeaponType[] activeWeaponTypes;
     private float enemySpawnPerSecond = 0.5f;
     private float enemySpawnPadding = 1.5f;
@@ -56,6 +66,21 @@ public class Main : Singleton<Main> {
     public void Restart ()
     {
         SceneManager.LoadScene (SceneManager.GetActiveScene ().name, LoadSceneMode.Single);
+    }
+
+    public void ShipDestroyed (Enemy e)
+    {
+        if (Random.value <= e.powerUpChance)
+        {
+            int index = Random.Range (0, powerUpFrequency.Length);
+            WeaponType puType = powerUpFrequency[index];
+
+            GameObject go = Instantiate (powerUpPrefab) as GameObject;
+            PowerUp pu = go.GetComponent<PowerUp> ();
+            pu.SetType (puType);
+
+            pu.transform.position = e.transform.position;
+        }
     }
 
     private void SpawnEnemy ()

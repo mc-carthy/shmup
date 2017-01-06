@@ -15,6 +15,7 @@ public class Enemy : MonoBehaviour {
 	private Color[] originalColors;
 	private Material[] materials;
 	public int remainingDamageFrames;
+	public float powerUpChance = 1f;
 	
 	private Bounds bounds;
 	private Vector3 boundsCenterOffset;
@@ -48,8 +49,6 @@ public class Enemy : MonoBehaviour {
 	{
 		GameObject otherGo = other.gameObject;
 
-		Debug.Log(otherGo.name);
-
 		switch (otherGo.tag)
 		{
 			case ("projectileHero"):
@@ -66,6 +65,7 @@ public class Enemy : MonoBehaviour {
 			health -= Main.W_DEFS[p.Type].damageOnHit;
 			if (health <= 0)
 			{
+				Main.Instance.ShipDestroyed (this);
 				Destroy (gameObject);
 			}
 

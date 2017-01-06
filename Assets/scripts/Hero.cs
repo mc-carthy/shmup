@@ -106,24 +106,26 @@ public class Hero : Singleton<Hero> {
 	{
 		PowerUp pu = go.GetComponent<PowerUp> ();
 
-		switch (pu.Type)
+		Debug.Log (pu.type);
+
+		switch (pu.type)
 		{
 			case (WeaponType.Shield):
 				shieldLevel++;
 				break;
 			default:
-				if (pu.Type == weapons[0].Type)
+				if (pu.type == weapons[0].Type)
 				{
 					Weapon w = GetEmptyWeaponSlot ();
 					if (w != null)
 					{
-						w.SetType (pu.Type);
+						w.SetType (pu.type);
 					}
 				}
 				else
 				{
 					ClearWeapons ();
-					weapons[0].SetType (pu.Type);
+					weapons[0].SetType (pu.type);
 				}
 				break;
 		}

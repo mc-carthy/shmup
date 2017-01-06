@@ -2,8 +2,7 @@
 
 public class PowerUp : MonoBehaviour {
 
-    private WeaponType type;
-    public WeaponType Type { get; }
+    public WeaponType type;
 	private Vector2 rotMinMax = new Vector2 (15f, 90f);
     private Vector2 driftMinMax = new Vector2 (0.25f, 2f);
     private float lifeTime = 6f;
