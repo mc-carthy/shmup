@@ -23,6 +23,7 @@ public class Main : Singleton<Main> {
     private WeaponType[] activeWeaponTypes;
     private float enemySpawnPerSecond = 0.5f;
     private float enemySpawnPadding = 1.5f;
+    public float EnemySpawnPadding { get; }
     private float enemySpawnRate;
     
 

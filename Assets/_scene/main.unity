@@ -296,7 +296,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyPrefabs:
-  - {fileID: 1795783465273666, guid: e042d6098e2984c72ac92c073ada7bf8, type: 2}
+  - {fileID: 1743132396874162, guid: ce7b35c57f0314a0bb2105c5aacfec37, type: 2}
   powerUpPrefab: {fileID: 1135316135846390, guid: e92638fa616c74a6fbbaf3a8ed6a9481,
     type: 2}
   weaponDefinitions:
