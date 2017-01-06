@@ -11,6 +11,7 @@ public class Hero : Singleton<Hero> {
 			if (value < 0)
 			{
 				Destroy (gameObject);
+				Main.Instance.DelayedRestart (gameRestartDelay);
 			}
 		}
 	}
@@ -20,6 +21,7 @@ public class Hero : Singleton<Hero> {
 	private float pitchMult = 30f;
 	private Bounds bounds;
 	private GameObject lastTriggerGo;
+	private float gameRestartDelay = 2f;
 
 	protected override void Awake ()
 	{

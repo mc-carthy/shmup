@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Main : Singleton<Main> {
 
@@ -14,6 +15,16 @@ public class Main : Singleton<Main> {
         Utilities.SetCameraBounds (GetComponent<Camera> ());
         enemySpawnRate = 1f / enemySpawnPerSecond;
         Invoke ("SpawnEnemy", enemySpawnRate);
+    }
+
+    public void DelayedRestart (float delay)
+    {
+        Invoke ("Restart", delay);
+    }
+
+    public void Restart ()
+    {
+        SceneManager.LoadScene (SceneManager.GetActiveScene ().name, LoadSceneMode.Single);
     }
 
     private void SpawnEnemy ()
