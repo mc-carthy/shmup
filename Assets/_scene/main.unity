@@ -130,6 +130,10 @@ Prefab:
       propertyPath: m_RootOrder
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 1928589722103408, guid: 4ac3a629d32d24c3eb247b2c9f7da16a, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 4ac3a629d32d24c3eb247b2c9f7da16a, type: 2}
   m_IsPrefabParent: 0
@@ -296,7 +300,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyPrefabs:
-  - {fileID: 1188827636033212, guid: 77185082ef4c24c56bc943a9657b6db2, type: 2}
+  - {fileID: 1589788556812036, guid: 7bae03275e6a749f1956b039413c4504, type: 2}
   powerUpPrefab: {fileID: 1135316135846390, guid: e92638fa616c74a6fbbaf3a8ed6a9481,
     type: 2}
   weaponDefinitions:
